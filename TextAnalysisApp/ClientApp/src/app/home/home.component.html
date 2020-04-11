@@ -1,0 +1,16 @@
+<h1>Text Analysis App</h1>
+<form [formGroup]="textAnalysisForm" autocomplete="off" (submit)="onSubmit()">
+  <div class="form-group">
+    <div class="input-group">
+      <textarea class="form-control" formControlName="text" placeholder="Put your text here"></textarea>
+    </div>
+  </div>
+  <div class="form-grop">
+    <button type="submit" class="btn btn-success btn-lg btn-block" [disabled]="textAnalysisForm.invalid"><i class="fas fa-database"></i> Submit</button>
+    <button type="button" class="btn btn-info btn-lg btn-block" (click)="resetForm()">Reset Input</button>
+  </div>
+</form>
+<div *ngIf="resultData" >
+  <span *ngFor="let item of resultData"><p>{{item.description}}</p></span>
+</div>
+
